@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Orders",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OrderDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "OrderTotal": {
+      "type": "decimal",
+      "required": true
+    },
+    "CustomerId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "orders"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
