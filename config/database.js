@@ -4,11 +4,13 @@ module.exports = ({ env }) => ({
   connection: {
     client: 'sqlite',
     connection: {
-      filename: path.join(__dirname, '..', env('DATABASE_FILENAME', 'db/data.db')),
+      // Store the database in the persistent disk mounted by Render
+      filename: path.join(__dirname, '..', '/mnt/disk/data.db'), // Adjust path for persistent storage
     },
     useNullAsDefault: true,
   },
 });
+
 
 // module.exports = ({ env }) => ({
 //   connection: {
